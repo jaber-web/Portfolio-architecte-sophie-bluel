@@ -3,6 +3,49 @@
    License: none (public domain)
 */
 
+/* ---------- LOGIN ---------- */
+
+#login {
+    width: 380px;
+    margin: 120px auto;
+}
+
+#login h2 {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+#login form {
+    display: flex;
+    flex-direction: column;
+}
+
+#login label {
+    margin-bottom: 8px;
+}
+
+#login input {
+    height: 50px;
+    border: none;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+    margin-bottom: 30px;
+    padding: 0 15px;
+}
+
+#login input[type="submit"] {
+    margin-bottom: 30px;
+}
+
+#login a {
+    display: block;
+    text-align: center;
+    color: black;
+    text-decoration: underline;
+}
+
+
+
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
