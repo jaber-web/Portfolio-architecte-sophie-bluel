@@ -102,6 +102,10 @@ function displayModalGallery(works) {
          trash.classList.add("fa-solid", "fa-trash-can");
          trash.dataset.id = work.id;
 
+         trash.addEventListener("click", () => {
+               console.log("Supprimer le projet :", trash.dataset.id);
+           });
+
          console.log(work.id);
 
          figure.appendChild(img);
