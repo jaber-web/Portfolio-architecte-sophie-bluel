@@ -8,6 +8,9 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
+	<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+	<script src="./script.js" defer></script>
 	<link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
@@ -15,12 +18,12 @@
 	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 	<nav>
 		<ul>
-			<li>projets</li>
-			<li>contact</li>
-			<li>login</li>
-			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
-		</ul>
-	</nav>
+          <li>projets</li>
+          <li>contact</li>
+          <li><a id="login-link" href="login.html">login</a></li>
+          <li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+       </ul>
+   </nav>
 </header>
 <main>
 	<section id="introduction">
@@ -34,9 +37,22 @@
 			<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
 		</article>
 	</section>
+
 	<section id="portfolio">
-		<h2>Mes Projets</h2>
-		<div class="gallery">
+
+    <div class="portfolio-title">
+
+        <h2>Mes Projets</h2>
+
+        <div id="edit-project" class="edit-project">
+            <i class="fa-regular fa-pen-to-square"></i>
+            <span>modifier</span>
+        </div>
+
+    </div>
+
+    <div class="gallery">
+
 			<figure>
 				<img src="assets/images/abajour-tahina.png" alt="Abajour Tahina">
 				<figcaption>Abajour Tahina</figcaption>
@@ -105,6 +121,25 @@
 		</ul>
 	</nav>
 </footer>
-<script src="./script.js"></script>
+
+
+<div id="modal" class="modal hidden">
+    <div class="modal-content">
+
+        <span class="close">&times;</span>
+
+        <h3>Galerie photo</h3>
+
+        <div class="modal-gallery"></div>
+
+        <hr>
+
+        <button id="add-photo">
+            Ajouter une photo
+        </button>
+
+    </div>
+
+</div>
 </body>
 </html>
