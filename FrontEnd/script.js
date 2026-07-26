@@ -84,13 +84,13 @@ function displayWorks(works) {
 
 }
 
-function displayModalGallery(works) {
+function displayModalGallery(worksList) {
 
     const modalGallery = document.querySelector(".modal-gallery");
 
     modalGallery.innerHTML = "";
 
-    works.forEach((work) => {
+    worksList.forEach((work) => {
 
         const figure = document.createElement("figure");
 
@@ -102,10 +102,36 @@ function displayModalGallery(works) {
          trash.classList.add("fa-solid", "fa-trash-can");
          trash.dataset.id = work.id;
 
-         trash.addEventListener("click", () => {
-               console.log("Supprimer le projet :", trash.dataset.id);
-           });
+            trash.addEventListener("click", () => {
 
+               fetch(`http://localhost:5678/api/works/${trash.dataset.id}`, {
+                method: "DELETE",
+               headers: {
+                Authorization: `Bearer ${token}`
+            }
+    })
+
+   .then((response) => {
+      console.log(response);
+
+       if (response.ok) {
+         console.log("Projet supprimé !");
+
+         works = works.filter(work => work.id != trash.dataset.id);
+
+         displayWorks(works);
+         displayModalGallery(works);
+
+        } else {
+              console.log("Erreur de suppression");
+            }
+    })
+
+    .catch((error) => {
+        console.error(error);
+    });
+
+    });
          console.log(work.id);
 
          figure.appendChild(img);
