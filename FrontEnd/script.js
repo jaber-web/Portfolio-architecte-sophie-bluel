@@ -100,6 +100,9 @@ function displayModalGallery(works) {
 
          const trash = document.createElement("i");
          trash.classList.add("fa-solid", "fa-trash-can");
+         trash.dataset.id = work.id;
+
+         console.log(work.id);
 
          figure.appendChild(img);
          figure.appendChild(trash);
