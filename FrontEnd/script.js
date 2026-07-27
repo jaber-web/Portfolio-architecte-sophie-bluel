@@ -36,6 +36,19 @@ if (token) {
         modal.classList.add("hidden");
     });
 
+   modal.addEventListener("click", (event) => {
+
+    console.log("Clique sur :", event.target);
+   if (event.target === modal) {
+      console.log("Je ferme la modale");
+
+      modal.classList.add("hidden");
+
+      console.log(modal.className);
+    }
+
+});
+
 }
 
 if (token) {
