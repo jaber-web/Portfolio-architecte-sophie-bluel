@@ -250,6 +250,7 @@ categories.forEach((category) => {
 
     filters.appendChild(button);
 });
+});
 
 imageInput.addEventListener("change", () => {
 
@@ -274,19 +275,29 @@ addPhotoForm.addEventListener("submit", (event) => {
     formData.append("title", document.getElementById("title").value);
     formData.append("category", categorySelect.value);
 
-   fetch("http://localhost:5678/api/works", {
-    method: "POST",
-    headers: {
-        Authorization: `Bearer ${token}`
-    },
-    body: formData
+    console.log("Avant le fetch");
+    console.log(formData);
+  fetch("http://localhost:5678/api/works", {
+      method: "POST",
+      headers: {
+          Authorization: `Bearer ${token}`
+        },
+       body: formData
     })
   .then((response) => {
-      console.log(response);
+      if (!response.ok) {
+         throw new Error("Erreur lors de l'ajout du projet");
+       }
+
+       return response.json();
    })
+   
+   .then((newWork) => {
+    console.log("Nouveau projet :", newWork);
+   })
+   
   .catch((error) => {
       console.error(error);
    });
-});
 
 });
