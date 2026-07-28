@@ -6,6 +6,7 @@ const addPhotoButton = document.getElementById("add-photo");
 const backButton = document.getElementById("back-button");
 const categorySelect = document.getElementById("category");
 const loginForm = document.querySelector("#login form");
+const addPhotoForm = document.getElementById("add-photo-form");
 
 const imageInput = document.getElementById("image");
 const uploadButton = document.querySelector(".upload-button");
@@ -263,5 +264,12 @@ imageInput.addEventListener("change", () => {
     uploadIcon.hidden = true;
     uploadText.hidden = true;
 });
+
+addPhotoForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    console.log("Formulaire envoyé");
+});
+
 
 });
