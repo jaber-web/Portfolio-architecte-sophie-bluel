@@ -1,10 +1,19 @@
 
+const modalGallery = document.querySelector(".modal-gallery");
 const galleryView = document.getElementById("gallery-view");
 const addPhotoView = document.getElementById("add-photo-view");
 const addPhotoButton = document.getElementById("add-photo");
 const backButton = document.getElementById("back-button");
 const categorySelect = document.getElementById("category");
 const loginForm = document.querySelector("#login form");
+
+const imageInput = document.getElementById("image");
+const uploadButton = document.querySelector(".upload-button");
+const imageUpload = document.querySelector(".image-upload");
+
+const previewImage = document.getElementById("preview-image");
+const uploadText = document.querySelector(".image-upload p");
+const uploadIcon = document.querySelector(".image-upload i");
 
 const gallery = document.querySelector(".gallery");
 console.log("gallery");
@@ -117,7 +126,6 @@ function displayWorks(works) {
         gallery.appendChild(figure);
     });
 }
-
 
 function displayModalGallery(worksList) {
 
@@ -241,5 +249,19 @@ categories.forEach((category) => {
 
     filters.appendChild(button);
 });
-        
+
+imageInput.addEventListener("change", () => {
+
+    const file = imageInput.files[0];
+
+    if (!file) return;
+
+    previewImage.src = URL.createObjectURL(file);
+    previewImage.hidden = false;
+
+    uploadButton.hidden = true;
+    uploadIcon.hidden = true;
+    uploadText.hidden = true;
+});
+
 });
