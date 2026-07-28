@@ -1,3 +1,9 @@
+
+const galleryView = document.getElementById("gallery-view");
+const addPhotoView = document.getElementById("add-photo-view");
+const addPhotoButton = document.getElementById("add-photo");
+const backButton = document.getElementById("back-button");
+const categorySelect = document.getElementById("category");
 const loginForm = document.querySelector("#login form");
 
 const gallery = document.querySelector(".gallery");
@@ -36,20 +42,30 @@ if (token) {
         modal.classList.add("hidden");
     });
 
-   modal.addEventListener("click", (event) => {
+    modal.addEventListener("click", (event) => {
 
-    console.log("Clique sur :", event.target);
-   if (event.target === modal) {
-      console.log("Je ferme la modale");
+        console.log("Clique sur :", event.target);
 
-      modal.classList.add("hidden");
+        if (event.target === modal) {
+            console.log("Je ferme la modale");
+            modal.classList.add("hidden");
+        }
 
-      console.log(modal.className);
-    }
+    });
 
-});
+    addPhotoButton.addEventListener("click", () => {
+        galleryView.classList.add("hidden");
+        addPhotoView.classList.remove("hidden");
+    });
+
+    backButton.addEventListener("click", () => {
+        addPhotoView.classList.add("hidden");
+        galleryView.classList.remove("hidden");
+    });
 
 }
+
+
 
 if (token) {
     loginLink.textContent = "logout";
@@ -76,6 +92,10 @@ if (token) {
 
 function displayWorks(works) {
 
+    console.log("displayWorks appelée");
+    console.log(works);
+    console.log(gallery);
+
     gallery.innerHTML = "";
 
     works.forEach((work) => {
@@ -92,10 +112,9 @@ function displayWorks(works) {
         figure.appendChild(figcaption);
 
         gallery.appendChild(figure);
-
     });
-
 }
+
 
 function displayModalGallery(worksList) {
 
@@ -158,15 +177,17 @@ function displayModalGallery(worksList) {
 
 fetch("http://localhost:5678/api/works")
   .then((response) => {
-     console.log(response);
-     return response.json();
+      console.log(response);
+      return response.json();
    })
 
-.then((data) => {
+  .then((data) => {
     works = data;
 
-    displayWorks(works);
+    console.log("Nombre de projets :", works.length);
+    console.log(works);
 
+    displayWorks(works);
     displayModalGallery(works);
 });
 
@@ -194,24 +215,28 @@ fetch("http://localhost:5678/api/categories")
     portfolio.insertBefore(filters, gallery);
 }
 
-          categories.forEach((category) => {
+categories.forEach((category) => {
 
-            const button = document.createElement("button");
+    const option = document.createElement("option");
+    option.value = category.id;
+    option.textContent = category.name;
+    categorySelect.appendChild(option);
 
-            button.textContent = category.name;
-            button.dataset.id = category.id;
+    const button = document.createElement("button");
 
-              button.addEventListener("click", () => {
+    button.textContent = category.name;
+    button.dataset.id = category.id;
 
-                const filteredWorks = works.filter((work) => {
-                  return work.categoryId === category.id;
-               });
+    button.addEventListener("click", () => {
 
-               displayWorks(filteredWorks);
-             });
+        const filteredWorks = works.filter((work) => {
+            return work.categoryId === category.id;
+        });
 
-               filters.appendChild(button);
-           });
+        displayWorks(filteredWorks);
+    });
 
+    filters.appendChild(button);
+});
         
 });

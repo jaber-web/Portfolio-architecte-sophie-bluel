@@ -38,7 +38,7 @@
 		</article>
 	</section>
 
-	<section id="portfolio">
+<section id="portfolio">
 
     <div class="portfolio-title">
 
@@ -51,54 +51,11 @@
 
     </div>
 
-    <div class="gallery">
+    <div class="gallery"></div>
 
-			<figure>
-				<img src="assets/images/abajour-tahina.png" alt="Abajour Tahina">
-				<figcaption>Abajour Tahina</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/appartement-paris-v.png" alt="Appartement Paris V">
-				<figcaption>Appartement Paris V</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/restaurant-sushisen-londres.png" alt="Restaurant Sushisen - Londres">
-				<figcaption>Restaurant Sushisen - Londres</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/la-balisiere.png" alt="Villa “La Balisiere” - Port Louis">
-				<figcaption>Villa “La Balisiere” - Port Louis</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/structures-thermopolis.png" alt="Structures Thermopolis">
-				<figcaption>Structures Thermopolis</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/appartement-paris-x.png" alt="Appartement Paris X">
-				<figcaption>Appartement Paris X</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/le-coteau-cassis.png" alt="Pavillon “Le coteau” - Cassis">
-				<figcaption>Pavillon “Le coteau” - Cassis</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/villa-ferneze.png" alt="Villa Ferneze - Isola d’Elba">
-				<figcaption>Villa Ferneze - Isola d’Elba</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/appartement-paris-xviii.png" alt="Appartement Paris XVIII">
-				<figcaption>Appartement Paris XVIII</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/bar-lullaby-paris.png" alt="Bar “Lullaby” - Paris">
-				<figcaption>Bar “Lullaby” - Paris</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/hotel-first-arte-new-delhi.png" alt="Hotel First Arte - New Delhi">
-				<figcaption>Hotel First Arte - New Delhi</figcaption>
-			</figure>
-		</div>
-	</section>
+</section>
+
+
 	<section id="contact">
 		<h2>Contact</h2>
 		<p>Vous avez un projet ? Discutons-en !</p>
@@ -126,20 +83,77 @@
 <div id="modal" class="modal hidden">
     <div class="modal-content">
 
-        <span class="close">&times;</span>
+        <!-- Vue Galerie -->
+        <div id="gallery-view">
 
-        <h3>Galerie photo</h3>
+            <span class="close">&times;</span>
 
-        <div class="modal-gallery"></div>
+            <h3>Galerie photo</h3>
 
-        <hr>
+            <div class="modal-gallery"></div>
 
-        <button id="add-photo">
-            Ajouter une photo
-        </button>
+            <hr>
 
-    </div>
+            <button id="add-photo">
+                Ajouter une photo
+            </button>
 
-</div>
+        </div>
+
+        <!-- Vue Ajout -->
+        <div id="add-photo-view" class="hidden">
+
+            <span id="back-button">
+                <i class="fa-solid fa-arrow-left"></i>
+            </span>
+
+            <span class="close">&times;</span>
+
+            <h3>Ajout photo</h3>
+
+            <form id="add-photo-form">
+
+                <div class="image-upload">
+
+                    <i class="fa-regular fa-image"></i>
+
+                    <label for="image" class="upload-button">
+                        + Ajouter photo
+                    </label>
+
+                    <input
+                        type="file"
+                        id="image"
+                        accept=".jpg,.png"
+                        hidden
+                    >
+
+                    <p>jpg, png : 4 Mo max</p>
+
+                </div>
+
+                <label for="title">Titre</label>
+                <input type="text" id="title">
+
+                <label for="category">Catégorie</label>
+
+                <select id="category">
+                    <option value=""></option>
+                </select>
+
+                <hr>
+
+                <button type="submit" id="validate-button">
+                    Valider
+                </button>
+
+            </form>
+
+        </div> <!-- fin add-photo-view -->
+
+    </div> <!-- fin modal-content -->
+
+</div> <!-- fin modal -->
+
 </body>
 </html>
