@@ -274,9 +274,19 @@ addPhotoForm.addEventListener("submit", (event) => {
     formData.append("title", document.getElementById("title").value);
     formData.append("category", categorySelect.value);
 
-    for (let pair of formData.entries()) {
-        console.log(pair[0], pair[1]);
-    }
+   fetch("http://localhost:5678/api/works", {
+    method: "POST",
+    headers: {
+        Authorization: `Bearer ${token}`
+    },
+    body: formData
+    })
+  .then((response) => {
+      console.log(response);
+   })
+  .catch((error) => {
+      console.error(error);
+   });
 });
 
 });
