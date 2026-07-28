@@ -30,7 +30,8 @@ const loginLink = document.getElementById("login-link");
 
 const editProject = document.getElementById("edit-project");
 const modal = document.getElementById("modal");
-const closeModal = document.querySelector(".close");
+const closeButtons = document.querySelectorAll(".close");
+
 
 if (token) {
 
@@ -38,9 +39,11 @@ if (token) {
         modal.classList.remove("hidden");
     });
 
-    closeModal.addEventListener("click", () => {
-        modal.classList.add("hidden");
-    });
+   closeButtons.forEach((button) => {
+       button.addEventListener("click", () => {
+           modal.classList.add("hidden");
+       });
+   });
 
     modal.addEventListener("click", (event) => {
 
