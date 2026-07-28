@@ -115,18 +115,18 @@
             <form id="add-photo-form">
 
                 <div class="image-upload">
+                   <i class="fa-regular fa-image"></i>
 
-                    <i class="fa-regular fa-image"></i>
+                   <label for="image" class="upload-button">
+                     + Ajouter photo
+                   </label>
 
-                    <label for="image" class="upload-button">
-                        + Ajouter photo
-                    </label>
+                  <input type="file" id="image" accept=".jpg,.png" hidden>
 
-                    <input type="file" id="image" accept=".jpg,.png" hidden>
+                  <img id="preview-image" hidden>
 
-                    <p>jpg, png : 4 Mo max</p>
-
-                </div>
+                  <p>jpg, png : 4 Mo max</p>
+               </div>
 
                 <label for="title">Titre</label>
                 <input type="text" id="title">
