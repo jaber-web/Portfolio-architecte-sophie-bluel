@@ -268,8 +268,15 @@ imageInput.addEventListener("change", () => {
 addPhotoForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    console.log("Formulaire envoyé");
-});
+    const formData = new FormData();
 
+    formData.append("image", imageInput.files[0]);
+    formData.append("title", document.getElementById("title").value);
+    formData.append("category", categorySelect.value);
+
+    for (let pair of formData.entries()) {
+        console.log(pair[0], pair[1]);
+    }
+});
 
 });
