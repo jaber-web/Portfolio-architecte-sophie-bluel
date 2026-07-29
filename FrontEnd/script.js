@@ -306,6 +306,9 @@ addPhotoForm.addEventListener("submit", (event) => {
        uploadButton.hidden = false;
        uploadIcon.hidden = false;
        uploadText.hidden = false;
+
+       addPhotoView.classList.add("hidden");
+       galleryView.classList.remove("hidden");
     })
     
    
