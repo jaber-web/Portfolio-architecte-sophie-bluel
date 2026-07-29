@@ -299,7 +299,15 @@ addPhotoForm.addEventListener("submit", (event) => {
 
        displayWorks(works);
        displayModalGallery(works);
+       addPhotoForm.reset();
+
+       previewImage.hidden = true;
+
+       uploadButton.hidden = false;
+       uploadIcon.hidden = false;
+       uploadText.hidden = false;
     })
+    
    
   .catch((error) => {
       console.error(error);
