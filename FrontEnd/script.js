@@ -291,10 +291,15 @@ addPhotoForm.addEventListener("submit", (event) => {
 
        return response.json();
    })
-   
+
    .then((newWork) => {
-    console.log("Nouveau projet :", newWork);
-   })
+      console.log("Nouveau projet :", newWork);
+
+       works.push(newWork);
+
+       displayWorks(works);
+       displayModalGallery(works);
+    })
    
   .catch((error) => {
       console.error(error);
